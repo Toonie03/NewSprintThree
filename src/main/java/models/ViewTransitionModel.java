@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import Views.EditPostController;
 import Views.FeedController;
 import Views.JobsController;
 import Views.SearchController;
@@ -123,6 +124,31 @@ public class ViewTransitionModel implements ViewTransitionModelInterface
 		      // TODO Auto-generated catch block
 		      e.printStackTrace();
 		    }
+  }
+  
+  @Override
+  public void showEditPost(FeedModel model)
+  {
+	    FXMLLoader loader = new FXMLLoader();
+	    loader.setLocation(ViewTransitionModel.class
+	        .getResource("../Views/EditPostView.fxml"));
+	    try {
+	      Pane view = loader.load();
+	      EditPostController cont = loader.getController();
+	      cont.setModel(this,FeedModel);
+	      Scene s = new Scene(view);
+	      stage.setScene(s);
+	      stage.show();
+	    } catch (IOException e) {
+		      // TODO Auto-generated catch block
+		      e.printStackTrace();
+		    }
+  }
+  
+  @Override
+  public void showEditUser()
+  {
+	  
   }
 
 }

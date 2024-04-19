@@ -41,6 +41,7 @@ public class JobsModel {
     	JobPost.setCenter(newJob.setCenter(JobPost));
     	JobPost.setBottom(newJob.setBottom());
     	Jobs.add(JobPost);
+    	System.out.println("Added a job");
     	
     }
     

@@ -60,6 +60,13 @@ public class FeedController
  		 System.out.println("Clicked on User");
  		 ViewModel.showUser();
   	}
+  	
+  	@FXML
+  	void onClickEdit(ActionEvent event)
+  	{
+  		System.out.println("Clicked on Edit");
+  		ViewModel.showEditPost(model);
+  	}
 
 
 
