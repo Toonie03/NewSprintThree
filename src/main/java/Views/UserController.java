@@ -3,12 +3,14 @@ package Views;
 import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import models.Post;
 import models.UserModel;
 import models.ViewTransitionModelInterface;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.BorderPane;
 import javafx.util.StringConverter;
 import  javafx.util.converter.*;
 public class UserController
@@ -30,11 +32,14 @@ public class UserController
       Bindings.bindBidirectional(FollowerTextLabel.textProperty(),
     		  model.getFollowers(), fmt);
       Bindings.bindBidirectional(FollowingTextLabel.textProperty(),
-    		  model.getFollowing(), fmt);      
+	  model.getFollowing(), fmt); model.getPosts().clear();
+	  model.createPost(model.getName().get(), "4/16/2024", "Daily Log 2", "Today I smelt the flowers and it made me think about recursion. Why I thought about recursion... idk. But I now hate flowers.", "totallyreallinktostuffandthings.com");     
+	  model.createPost(model.getName().get(), "4/15/2024", "Daily Log 1", "I'm new here. Hopefully I make some new lie long friends and find some really cool oppertunites", "totallyreallinktostuffandthings.com");     
+	  UserPostsListView.setItems(model.getPosts());
     }
 
     @FXML
-    private ListView<?> UserPostsListView;
+    private ListView<BorderPane> UserPostsListView;
     @FXML
     private Label DisplayBioLabel;
 
@@ -60,7 +65,8 @@ public class UserController
 
     @FXML
     void onClickSearch(ActionEvent event) {
-
+    	System.out.println("Clicked on Search");
+    	ViewModel.showSearch();
     }
 
     @FXML

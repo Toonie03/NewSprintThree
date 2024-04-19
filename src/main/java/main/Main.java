@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import models.ViewTransitionModel;
 import models.FeedModel;
 import models.JobsModel;
+import models.SearchModel;
 import models.UserModel;
 import Views.LoginController;
 import Views.UserController;
@@ -18,15 +19,17 @@ public class Main extends Application
   @Override
   public void start(Stage stage) throws Exception
   {
-    UserModel model = new UserModel(stage);
-    FeedModel FeedModel = new FeedModel(stage);
-    JobsModel JobsModel = new JobsModel(stage);
+
     
     FXMLLoader loader = new FXMLLoader();
     loader.setLocation(Main.class.getResource("../Views/LoginView.fxml"));
     BorderPane view = loader.load();
+    UserModel model = new UserModel(stage);
+    FeedModel FeedModel = new FeedModel(stage);
+    JobsModel JobsModel = new JobsModel(stage);
+    SearchModel SearchModel = new SearchModel(stage);
     LoginController cont = loader.getController();
-    ViewTransitionModel vm =new ViewTransitionModel(view,model, stage, FeedModel, JobsModel); 
+    ViewTransitionModel vm =new ViewTransitionModel(view,model, stage, FeedModel, JobsModel, SearchModel); 
     cont.setModel(vm, model);
     
     

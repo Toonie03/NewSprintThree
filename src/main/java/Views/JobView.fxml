@@ -2,14 +2,11 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.TilePane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.FeedController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.JobsController">
    <left>
       <TilePane prefHeight="400.0" prefWidth="102.0" vgap="25.0" BorderPane.alignment="CENTER">
          <children>
@@ -24,42 +21,6 @@
       </TilePane>
    </left>
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-         <children>
-            <BorderPane prefHeight="200.0" prefWidth="200.0">
-               <top>
-                  <HBox prefHeight="39.0" prefWidth="498.0" spacing="300.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <Label text="Mia.Tomillo" />
-                        <Label text="4/16/2024" />
-                     </children>
-                  </HBox>
-               </top>
-               <bottom>
-                  <Label text="www.TotallyRealWebsiteForApplyingToBeATutor.com" BorderPane.alignment="CENTER" />
-               </bottom>
-               <center>
-                  <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <HBox prefHeight="38.0" prefWidth="498.0">
-                           <children>
-                              <Label text="Computer Science Tutor" wrapText="true">
-                                 <font>
-                                    <Font name="System Bold" size="21.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="86.0" prefWidth="498.0">
-                           <children>
-                              <Label text="Hello Everyone. My Name is Mia Tomillo. I am looking for someone ot become my personal assistanttutor for my computer science clsses. I pay 20$ an hour and would need tutroing for four hours throughout the enitre wek. Click the link below to apply" wrapText="true" />
-                           </children>
-                        </HBox>
-                     </children>
-                  </VBox>
-               </center>
-            </BorderPane>
-         </children>
-      </VBox>
+      <ListView fx:id="JobView" prefHeight="200.0" prefWidth="214.0" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

@@ -2,13 +2,9 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.TilePane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.FeedController">
    <left>
@@ -25,133 +21,6 @@
       </TilePane>
    </left>
    <center>
-      <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <content>
-            <VBox prefHeight="646.0" prefWidth="496.0">
-               <children>
-                  <BorderPane prefHeight="209.0" prefWidth="496.0">
-                     <top>
-                        <HBox prefHeight="4.0" prefWidth="496.0" BorderPane.alignment="CENTER">
-                           <children>
-                              <Label prefHeight="16.0" prefWidth="411.0" text="william.bailey">
-                                 <HBox.margin>
-                                    <Insets top="30.0" />
-                                 </HBox.margin>
-                              </Label>
-                              <Label text="4/17/24">
-                                 <HBox.margin>
-                                    <Insets top="30.0" />
-                                 </HBox.margin>
-                              </Label>
-                           </children>
-                        </HBox>
-                     </top>
-                     <center>
-                        <VBox prefHeight="45.0" prefWidth="494.0" BorderPane.alignment="CENTER">
-                           <children>
-                              <Label prefHeight="16.0" prefWidth="495.0" text="Please Register for Databases!">
-                                 <VBox.margin>
-                                    <Insets top="30.0" />
-                                 </VBox.margin>
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <Label prefHeight="40.0" prefWidth="461.0" text="Hi Students. No one has signed up to take databases, and that makes me super sad. I promise it is a fun course! Please register today!" wrapText="true" />
-                           </children>
-                        </VBox>
-                     </center>
-                     <bottom>
-                        <Label text="https://www.centre.edu/academics/course-catalog" BorderPane.alignment="CENTER">
-                           <BorderPane.margin>
-                              <Insets bottom="20.0" />
-                           </BorderPane.margin>
-                        </Label>
-                     </bottom>
-                  </BorderPane>
-                  <BorderPane prefHeight="190.0" prefWidth="496.0">
-                     <top>
-                        <HBox prefHeight="31.0" prefWidth="498.0" BorderPane.alignment="CENTER">
-                           <children>
-                              <Label prefHeight="16.0" prefWidth="411.0" text="michael.bradshaw">
-                                 <HBox.margin>
-                                    <Insets top="30.0" />
-                                 </HBox.margin>
-                              </Label>
-                              <Label text="4/17/24">
-                                 <HBox.margin>
-                                    <Insets top="30.0" />
-                                 </HBox.margin>
-                              </Label>
-                           </children>
-                        </HBox>
-                     </top>
-                     <center>
-                        <VBox prefHeight="161.0" prefWidth="496.0" BorderPane.alignment="CENTER">
-                           <children>
-                              <Label prefHeight="18.0" prefWidth="479.0" text="CSC 270 Now Full!">
-                                 <VBox.margin>
-                                    <Insets top="20.0" />
-                                 </VBox.margin>
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <Label prefHeight="74.0" prefWidth="473.0" text="Attention students, all seats for the Fall 2024 section of Data Structures is now full. Please check out other course offerings below." wrapText="true" />
-                           </children>
-                        </VBox>
-                     </center>
-                     <bottom>
-                        <Label prefHeight="26.0" prefWidth="328.0" text="https://www.centre.edu/academics/course-catalog" BorderPane.alignment="CENTER">
-                           <BorderPane.margin>
-                              <Insets bottom="20.0" />
-                           </BorderPane.margin>
-                        </Label>
-                     </bottom>
-                  </BorderPane>
-                  <BorderPane prefHeight="190.0" prefWidth="496.0">
-                     <center>
-                        <VBox prefHeight="161.0" prefWidth="496.0" BorderPane.alignment="CENTER">
-                           <children>
-                              <Label prefHeight="18.0" prefWidth="479.0" text="CSC 270 New Section!">
-                                 <VBox.margin>
-                                    <Insets top="20.0" />
-                                 </VBox.margin>
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <Label prefHeight="44.0" prefWidth="473.0" text="Attention students, more seats have opened up in Data Structures for the fall. Register below!" wrapText="true" />
-                           </children>
-                        </VBox>
-                     </center>
-                     <bottom>
-                        <Label prefHeight="26.0" prefWidth="328.0" text="https://www.centre.edu/academics/course-catalog" BorderPane.alignment="CENTER">
-                           <BorderPane.margin>
-                              <Insets bottom="20.0" />
-                           </BorderPane.margin>
-                        </Label>
-                     </bottom>
-                     <top>
-                        <HBox prefHeight="31.0" prefWidth="498.0" BorderPane.alignment="CENTER">
-                           <children>
-                              <Label prefHeight="16.0" prefWidth="411.0" text="michael.bradshaw">
-                                 <HBox.margin>
-                                    <Insets top="30.0" />
-                                 </HBox.margin>
-                              </Label>
-                              <Label text="4/18/24">
-                                 <HBox.margin>
-                                    <Insets top="30.0" />
-                                 </HBox.margin>
-                              </Label>
-                           </children>
-                        </HBox>
-                     </top>
-                  </BorderPane>
-               </children>
-            </VBox>
-         </content>
-      </ScrollPane>
+      <ListView fx:id="PostView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

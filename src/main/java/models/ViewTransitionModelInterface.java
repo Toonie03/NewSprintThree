@@ -6,7 +6,7 @@ public interface ViewTransitionModelInterface
   public void showUser();
   public void showHome();
   public void showJobs();
-  public void showSettings();
+  public void showSearch();
   
 
 }

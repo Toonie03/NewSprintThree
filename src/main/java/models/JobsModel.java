@@ -7,58 +7,43 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 
 public class JobsModel {
 
     Stage stage;
-    StringProperty UserName = new SimpleStringProperty();
-    StringProperty JobTitle = new SimpleStringProperty();
-    StringProperty JobPost = new SimpleStringProperty();
-    StringProperty JobLink = new SimpleStringProperty();
-    
-    
+	ObservableList<BorderPane> Jobs = 
+		      FXCollections.observableArrayList();
     
     public JobsModel(Stage givenStage)
     {
    	 stage = givenStage;
-   	 
     }
-    public StringProperty getUsername()
+    
+    public ObservableList<BorderPane> getJobs()
     {
-   	 setUserName("theson");
-   	 return UserName;
-   	 
+    	return Jobs;
     }
-    public void setUserName(String str)
-      {
-   	   UserName.setValue(str);
-      }
+
+    public void createJob(String name, String date, String title, String text, String link)
+    {
+    	StringProperty givenName = new SimpleStringProperty(name);
+    	StringProperty givenDate = new SimpleStringProperty(date);
+    	StringProperty givenTitle = new SimpleStringProperty(title);
+    	StringProperty givenText = new SimpleStringProperty(text);
+    	StringProperty givenLink = new SimpleStringProperty(link);
+    	Post newJob = new Post(givenName, givenDate,givenTitle,givenText,givenLink, stage);
+    	BorderPane JobPost = new BorderPane();
+    	JobPost.setTop(newJob.setTop());
+    	JobPost.setCenter(newJob.setCenter(JobPost));
+    	JobPost.setBottom(newJob.setBottom());
+    	Jobs.add(JobPost);
+    	
+    }
     
     
-    public StringProperty getJobTitle() {
-   	 setJobTitle("BraveScientist");
-   	 return JobTitle;
-    }
-    public void setJobTitle(String str) {
-   	 JobTitle.setValue(str);
-    }
-    
-    
-    public StringProperty getJobPost() {
-   	 setJobPost("This is the CS depatment of California board of health calling and we want you to help us build a AI which will repsond to History Questions");
-   	 return JobPost;
-    }
-    public void setJobPost(String string) {
-   	 JobPost.setValue(string);
-    }
-    public StringProperty getJobLink() {
-   	 setJobLink("centre.edu");
-   	 return JobLink;
-    }
-    public void setJobLink(String string) {
-   	 JobLink.setValue(string);
-    }
     
 }
