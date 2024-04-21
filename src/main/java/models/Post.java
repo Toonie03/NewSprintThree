@@ -19,6 +19,10 @@ public class Post {
 	BorderPane Holder = new BorderPane();
 	Stage stage;
 
+	public Post()
+	{
+		
+	}
 
 	public Post(StringProperty poster, StringProperty postDate, StringProperty jobTitle, StringProperty jobText,
 			StringProperty jobLink, Stage stage) {
@@ -111,7 +115,6 @@ public class Post {
 		Label text = new Label(getJobText().get());
 		title.setStyle("-fx-font-weight: bold");
 		text.maxWidth(300);
-		System.out.println("Text Wrap is " + text.wrapTextProperty().get());
 		body.getChildren().addAll(title, text);
 		return body;
 	}

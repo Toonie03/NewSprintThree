@@ -75,6 +75,12 @@ public class UserController
     	ViewModel.showUser();
     }
 
+    @FXML
+    void onClickEdit(ActionEvent event)
+    {
+    	System.out.println("Clicked on Edit");
+    	ViewModel.showEditUser(model);
+    }
 
 
 

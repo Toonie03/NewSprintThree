@@ -67,7 +67,7 @@
             <ListView fx:id="UserPostsListView" prefHeight="322.0" prefWidth="578.0" BorderPane.alignment="CENTER" />
          </bottom>
          <center>
-            <Button mnemonicParsing="false" text="Edit" BorderPane.alignment="CENTER" />
+            <Button mnemonicParsing="false" onAction="#onClickEdit" text="Edit" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
    </center>

@@ -25,11 +25,22 @@ public class JobsController {
 	{
   	ViewModel=newViewModel;
   	model = newModel;
-  	model.getJobs().clear();
-  	model.createJob("Mia Tomillo", "4/16/2024", "CS Tutor", "Looking for someone to be a tutor for me as my classes are getting really hard. Will pay upto 40$ an hour and will need atleast 5 hours of help a week. Click the link below to apply", "totallyreallinktostuffandthings.com");
-  	JobView.setItems(model.getJobs());
+  	refresh();
   	
 
+	}
+
+	public void refresh()
+	{
+		int PostSize = model.getJobs().size();
+		model.getJobs().clear();
+		for(int i=0;i<PostSize;i++)
+		{
+			model.createJob(model.getPostData().get(i).getPoster().get(), model.getPostData().get(i).getPostDate().get(), 
+					model.getPostData().get(i).getJobTitle().get(), model.getPostData().get(i).getJobTitle().get(),
+					model.getPostData().get(i).getJobLink().get());
+		}
+	  	JobView.setItems(model.getJobs());
 	}
 
 	
@@ -56,11 +67,20 @@ public class JobsController {
  		 System.out.println("Clicked on User");
  		 ViewModel.showUser();
   	}
-//  	@FXML
-//  	void onClickEdit(ActionEvent event)
-//  	{
-//  		System.out.println("Clicked on Edit");
-//  		ViewModel.showEditPost(model);
-//  	}
+  	@FXML
+  	void onClickEdit(ActionEvent event)
+  	{
+  		Post selectedPost = getPost();
+  		System.out.println("Clicked on Edit");
+  		ViewModel.showEditPost(selectedPost);
+  	}
+
+  	public Post getPost()
+  	{
+  		int PostIndex = JobView.getSelectionModel().getSelectedIndex();
+  		Post wantedPost = model.getPostData().get(PostIndex);
+  		return wantedPost;
+  	}
+
   	
 }

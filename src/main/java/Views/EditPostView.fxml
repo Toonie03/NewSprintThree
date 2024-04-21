@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.FeedController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.EditPostController">
    <left>
       <TilePane prefHeight="400.0" prefWidth="102.0" vgap="25.0" BorderPane.alignment="CENTER">
          <children>
@@ -30,19 +30,19 @@
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Label text="Edit Title:" />
-                  <TextField />
+                  <TextField fx:id="EditTitleTextField" />
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Label text="Edit Text:" />
-                  <TextField />
+                  <TextField fx:id="EditBodyTextField" />
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Label text="Edit Link:" />
-                  <TextField />
+                  <TextField fx:id="EditLinkTextField" />
                </children>
             </HBox>
             <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0">
@@ -59,7 +59,7 @@
                   </VBox>
                </items>
             </SplitPane>
-            <Button mnemonicParsing="false" text="Commit Changes" />
+            <Button mnemonicParsing="false" onAction="#onClickCommit" text="Commit Changes" />
          </children>
       </VBox>
    </center>

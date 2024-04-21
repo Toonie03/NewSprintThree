@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import models.FeedModel;
 import models.JobsModel;
+import models.Post;
 import models.ViewTransitionModelInterface;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,15 +28,24 @@ public class FeedController
 	{
   	ViewModel=newViewModel;
   	model = newModel;
-  	model.getPosts().clear();
-  	model.createPost("william.bailey", "4/17/2024", "Please Register for Databases", "Hi Students. No one has signed up to take databases, and that makes me super sad. I promise it is a fun course! Please register today!", "https://www.centre.edu/academics/course-catalog");
-  	model.createPost("michael.bradshaw", "4/17/2024", "CSC 270 Now Full!", "Attention students, all seats for the Fall 2024 section of Data Structures is now full. Please check out other course offerings below.", "https://www.centre.edu/academics/course-catalog");
-  	model.createPost("michael.bradshaw", "4/18/2024", "CSC 270 New Section!", "Attention students, more seats have opened up in Data Structures for the fall. Register below!", "https://www.centre.edu/academics/course-catalog");
-  	PostView.setItems(model.getPosts());
+  	refresh();
   	
 
 	}
 
+	public void refresh()
+	{
+		int PostSize = model.getPosts().size();
+		model.getPosts().clear();
+		for(int i=0;i<PostSize;i++)
+		{
+			model.createPost(model.getPostData().get(i).getPoster().get(), model.getPostData().get(i).getPostDate().get(), 
+					model.getPostData().get(i).getJobTitle().get(), model.getPostData().get(i).getJobTitle().get(),
+					model.getPostData().get(i).getJobLink().get());
+		}
+	  	PostView.setItems(model.getPosts());
+	}
+	
 	
   	@FXML
   	void onClickHome(ActionEvent event) {
@@ -64,10 +74,17 @@ public class FeedController
   	@FXML
   	void onClickEdit(ActionEvent event)
   	{
+  		Post selectedPost = getPost();
   		System.out.println("Clicked on Edit");
-  		ViewModel.showEditPost(model);
+  		ViewModel.showEditPost(selectedPost);
   	}
 
+  	public Post getPost()
+  	{
+  		int PostIndex = PostView.getSelectionModel().getSelectedIndex();
+  		Post wantedPost = model.getPostData().get(PostIndex);
+  		return wantedPost;
+  	}
 
 
 

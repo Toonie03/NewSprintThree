@@ -10,6 +10,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import Views.EditPostController;
+import Views.EditUserController;
 import Views.FeedController;
 import Views.JobsController;
 import Views.SearchController;
@@ -127,7 +128,7 @@ public class ViewTransitionModel implements ViewTransitionModelInterface
   }
   
   @Override
-  public void showEditPost(FeedModel model)
+  public void showEditPost(Post post)
   {
 	    FXMLLoader loader = new FXMLLoader();
 	    loader.setLocation(ViewTransitionModel.class
@@ -135,7 +136,7 @@ public class ViewTransitionModel implements ViewTransitionModelInterface
 	    try {
 	      Pane view = loader.load();
 	      EditPostController cont = loader.getController();
-	      cont.setModel(this,FeedModel);
+	      cont.setModel(this,post);
 	      Scene s = new Scene(view);
 	      stage.setScene(s);
 	      stage.show();
@@ -144,11 +145,24 @@ public class ViewTransitionModel implements ViewTransitionModelInterface
 		      e.printStackTrace();
 		    }
   }
-  
+
   @Override
-  public void showEditUser()
+  public void showEditUser(UserModel model)
   {
-	  
+	    FXMLLoader loader = new FXMLLoader();
+	    loader.setLocation(ViewTransitionModel.class
+	        .getResource("../Views/EditUserView.fxml"));
+	    try {
+	      Pane view = loader.load();
+	      EditUserController cont = loader.getController();
+	      cont.setModel(this,model);
+	      Scene s = new Scene(view);
+	      stage.setScene(s);
+	      stage.show();
+	    } catch (IOException e) {
+		      // TODO Auto-generated catch block
+		      e.printStackTrace();
+		    }
   }
 
 }

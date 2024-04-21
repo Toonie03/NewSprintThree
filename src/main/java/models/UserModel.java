@@ -16,9 +16,7 @@ import javafx.stage.Stage;
 public class UserModel
 {
   Stage stage;
-  StringProperty FirstName = new SimpleStringProperty();
-  StringProperty LastName = new SimpleStringProperty();
-  StringProperty WholeName = new SimpleStringProperty();
+  StringProperty Name = new SimpleStringProperty();
   StringProperty Bio = new SimpleStringProperty();
   IntegerProperty Followers = new SimpleIntegerProperty();
   IntegerProperty Following = new SimpleIntegerProperty();
@@ -28,24 +26,18 @@ public class UserModel
   public UserModel(Stage givenStage)
   {
     stage = givenStage;
+    setName("John Doe");
+    setBio("Hi. I'm Mr.Doe");
   }
   
   public StringProperty getName()
   {
-	  setFirstName("John");
-	  setLastName("Doe");
-	  WholeName.set(FirstName.get()+" "+LastName.get());
-	  return WholeName;
+	  return Name;
   }
   
-  public void setFirstName(String str)
+  public void setName(String str)
   {
-	  FirstName.setValue(str);
-  }
-  
-  public void setLastName(String str)
-  {
-	  LastName.setValue(str);
+	  Name.setValue(str);
   }
   
   public void setBio(String str)
@@ -55,7 +47,6 @@ public class UserModel
   
   public StringProperty getBio()
   {
-	  setBio("I am a computer scientist with a heavy interest in chemestry");
 	  return Bio;
   }
   
